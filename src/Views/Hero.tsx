@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import BannerImage from "/public/banner-image.webp";
+import Banner from "/public/banner.webp";
 import Image from "next/image";
 
 function Hero() {
@@ -26,7 +26,7 @@ function Hero() {
 
       
         <Image
-          src={BannerImage}
+          src={Banner}
           alt="Banner Image"
           className="object-cover rounded-lg"
         />
