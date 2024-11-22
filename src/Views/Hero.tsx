@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import BannerImage from "/public/banner-imagae.webp";
+import BannerImage from "/public/banner-image.webp";
 import Image from "next/image";
 
 function Hero() {
