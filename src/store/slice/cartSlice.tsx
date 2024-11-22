@@ -1,36 +1,42 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { Action, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
 
 export interface CounterState {
-  items: Array<any>;
+  items: CartItem[];
   totalAmount: number;
-  totalQuantity:number;
+  totalQuantity: number;
 }
 
 const initialState: CounterState = {
   items: [],
   totalAmount: 0,
-  totalQuantity:0,
-}
+  totalQuantity: 0,
+};
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addtoCart: (state,actions:PayloadAction<any>) => {
-      state.totalQuantity+=actions.payload.quantity;
-    
+    addToCart: (state, actions: PayloadAction<CartItem>) => {
+      state.totalQuantity += actions.payload.quantity;
+      state.items.push(actions.payload); // Add the item to the cart
     },
-    removeFromCart: (state,actions:PayloadAction<any>)  => {
-      state.totalQuantity-=actions.payload.quantity;
+    removeFromCart: (state, actions: PayloadAction<CartItem>) => {
+      state.totalQuantity -= actions.payload.quantity;
+      state.items = state.items.filter(item => item.id !== actions.payload.id);
     },
-    clrearCart: (state, actions: PayloadAction<number>) => {
-      state=initialState;
+    clearCart: (state) => {
+      return initialState;
     },
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const cartActions = cartSlice.actions
+export const cartActions = cartSlice.actions;
 
-export default cartSlice.reducer
+export default cartSlice.reducer;

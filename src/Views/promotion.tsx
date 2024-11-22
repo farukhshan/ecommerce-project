@@ -1,5 +1,4 @@
-import React from 'react';
-import Img from 'next/image';
+
 
 function Promotion() {
   return (

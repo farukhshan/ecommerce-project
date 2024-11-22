@@ -2,7 +2,7 @@
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store/store'; // Adjust the path as needed
-import { cartActions } from '@/store/slice/cartSlice';
+
 import { useState } from 'react';
 
 

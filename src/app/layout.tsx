@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header/pages";
 import Footer from "@/components/layout/Footer/page";
 import Providers from "@/components/Providers";
-import { store } from "@/store/store";
+
 
 
 const geistSans = localFont({
